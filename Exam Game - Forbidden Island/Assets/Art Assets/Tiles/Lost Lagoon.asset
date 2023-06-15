@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0da545e6d4643e4dbe41f850e61f950, type: 3}
   m_Name: Lost Lagoon
   m_EditorClassIdentifier: 
+  tileName: Lost Lagoon
   tileImage: {fileID: 21300000, guid: 91aca74df73d09e4f92ada9327f01118, type: 3}
   tileImageFlooded: {fileID: 21300000, guid: c45a6ea955673cc4b9148a0f2b6961ef, type: 3}
   tileImageSunk: {fileID: 0}

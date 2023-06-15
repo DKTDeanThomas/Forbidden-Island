@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0da545e6d4643e4dbe41f850e61f950, type: 3}
   m_Name: Copper Gate
   m_EditorClassIdentifier: 
+  tileName: Copper Gate
   tileImage: {fileID: 21300000, guid: 28b4200792896d94e91f31db1e8fef79, type: 3}
   tileImageFlooded: {fileID: 21300000, guid: 1560ff34da711404492c86b1371b132b, type: 3}
   tileImageSunk: {fileID: 0}

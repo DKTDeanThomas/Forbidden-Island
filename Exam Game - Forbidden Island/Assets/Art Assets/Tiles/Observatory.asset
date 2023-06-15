@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0da545e6d4643e4dbe41f850e61f950, type: 3}
   m_Name: Observatory
   m_EditorClassIdentifier: 
+  tileName: Observatory
   tileImage: {fileID: 21300000, guid: 4d02a8086584844469aedef3597c9ae7, type: 3}
   tileImageFlooded: {fileID: 21300000, guid: 3b2d8c557d5a82846a6d6dbc3c7b13db, type: 3}
   tileImageSunk: {fileID: 0}

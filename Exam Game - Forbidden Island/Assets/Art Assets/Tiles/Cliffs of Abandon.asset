@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0da545e6d4643e4dbe41f850e61f950, type: 3}
   m_Name: Cliffs of Abandon
   m_EditorClassIdentifier: 
+  tileName: Cliffs of Abandon
   tileImage: {fileID: 21300000, guid: 914738a00f45ae84ea75d1623a09d2c4, type: 3}
   tileImageFlooded: {fileID: 21300000, guid: d30215d75504c2d4d81b8331299d1352, type: 3}
   tileImageSunk: {fileID: 0}

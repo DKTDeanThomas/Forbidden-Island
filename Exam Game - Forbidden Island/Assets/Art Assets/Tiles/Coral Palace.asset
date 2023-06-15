@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0da545e6d4643e4dbe41f850e61f950, type: 3}
   m_Name: Coral Palace
   m_EditorClassIdentifier: 
+  tileName: Coral Palace
   tileImage: {fileID: 21300000, guid: eac75a1d6eb5b4641b7fb3feaa194f1b, type: 3}
   tileImageFlooded: {fileID: 21300000, guid: f5607953c424c70468bb38846bafb332, type: 3}
   tileImageSunk: {fileID: 0}

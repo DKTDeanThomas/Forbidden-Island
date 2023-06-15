@@ -15,6 +15,8 @@ public class TileManager : MonoBehaviour
     public List<Tile> gameTiles = new List<Tile>(); 
     public List<Tile> boardTiles = new List<Tile>();
 
+    public GameObject[] spawnedTiles;
+
     void Start()
     {
         tInstance = this;
@@ -25,6 +27,7 @@ public class TileManager : MonoBehaviour
 
         SpawnTiles();
 
+        ResetTileStates();
     }
 
 
@@ -92,6 +95,61 @@ public class TileManager : MonoBehaviour
             }
         }
     }
+
+    public void TileFlood(string cardName)
+    {
+        spawnedTiles = GameObject.FindGameObjectsWithTag("Tile");
+
+        int floodedTileIndex = -1;
+
+        for (int i = 0; i < spawnedTiles.Length; i++)
+        {
+            var tileImage = spawnedTiles[i].transform.Find("TileImg").GetComponent<Image>();
+
+            if (boardTiles[i] != null && boardTiles[i].tileImage != null && cardName == boardTiles[i].tileName)
+            {
+                Debug.Log(boardTiles[i].name);
+
+                if (boardTiles[i].state == Tile.TileState.flooded)
+                {
+                    tileImage.sprite = null; // Set the image to null if the tile is already flooded
+                    boardTiles[i].state = Tile.TileState.sunk; // Change the status to "sunk"
+                }
+
+                if (boardTiles[i].state == Tile.TileState.sunk)
+                {
+                    tileImage.sprite = null;
+                }
+
+                else
+                {
+                    tileImage.sprite = boardTiles[i].tileImageFlooded;
+                    boardTiles[i].state = Tile.TileState.flooded;
+                    floodedTileIndex = i;
+                }
+            }
+
+        }
+
+        if (floodedTileIndex != -1)
+        {
+            Debug.Log("Tile is flooded: " + boardTiles[floodedTileIndex].name);
+            // Perform any other actions you want to take when the tile is flooded
+        }
+    }
+
+    public void ResetTileStates()
+    {
+        for (int i = 0; i < boardTiles.Count; i++)
+        {
+            if (boardTiles[i] != null)
+            {
+                boardTiles[i].state = Tile.TileState.normal;
+            }
+        }
+    }
+
+
 
 }
 

@@ -13,7 +13,7 @@ public class TokenMovement : MonoBehaviour
     private Vector3 offset;
 
     public int moveCount = 0;
-    private int maxMoveLimit = 6;
+    public int maxMoveLimit = 6;
    
 
     private void Start()
@@ -84,8 +84,8 @@ public class TokenMovement : MonoBehaviour
         else
         {
             DeselectToken();
-            offset = Vector3.zero;             //prevents movement when limit is reached
-
+            offset = Vector3.zero;    //prevents movement when limit is reached
+            Debug.Log("Player movement limit reached");
 
         }
 

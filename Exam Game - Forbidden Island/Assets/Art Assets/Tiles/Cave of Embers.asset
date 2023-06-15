@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0da545e6d4643e4dbe41f850e61f950, type: 3}
   m_Name: Cave of Embers
   m_EditorClassIdentifier: 
+  tileName: Cave of Embers
   tileImage: {fileID: 21300000, guid: e432900c7d01f3945ab7743005970cda, type: 3}
   tileImageFlooded: {fileID: 21300000, guid: 43b27e73b2c98464681dfc443e74de79, type: 3}
   tileImageSunk: {fileID: 0}

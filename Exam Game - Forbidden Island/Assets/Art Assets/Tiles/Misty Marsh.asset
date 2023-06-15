@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0da545e6d4643e4dbe41f850e61f950, type: 3}
   m_Name: Misty Marsh
   m_EditorClassIdentifier: 
+  tileName: Misty Marsh
   tileImage: {fileID: 21300000, guid: d59a2ed1e17b3de448d82f2f5e9cdd4a, type: 3}
   tileImageFlooded: {fileID: 21300000, guid: f9dfbe6864f573c43bbd80c667fba86b, type: 3}
   tileImageSunk: {fileID: 0}

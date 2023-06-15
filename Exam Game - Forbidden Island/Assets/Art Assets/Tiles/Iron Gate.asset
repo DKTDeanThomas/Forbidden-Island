@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0da545e6d4643e4dbe41f850e61f950, type: 3}
   m_Name: Iron Gate
   m_EditorClassIdentifier: 
+  tileName: Iron Gate
   tileImage: {fileID: 21300000, guid: 9f9329c3ed2cc9746bfb47881ac562dc, type: 3}
   tileImageFlooded: {fileID: 21300000, guid: dccb45f827ee6f74390765852708dc9b, type: 3}
   tileImageSunk: {fileID: 0}

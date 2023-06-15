@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0da545e6d4643e4dbe41f850e61f950, type: 3}
   m_Name: Gold Gate
   m_EditorClassIdentifier: 
+  tileName: Gold Gate
   tileImage: {fileID: 21300000, guid: e5f6289c725a2704db1aaf1f1c3a5d5d, type: 3}
   tileImageFlooded: {fileID: 21300000, guid: 0396aa6834f9a7e4091556c7db6d6370, type: 3}
   tileImageSunk: {fileID: 0}

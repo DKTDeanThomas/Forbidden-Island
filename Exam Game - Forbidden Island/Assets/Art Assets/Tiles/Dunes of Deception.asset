@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0da545e6d4643e4dbe41f850e61f950, type: 3}
   m_Name: Dunes of Deception
   m_EditorClassIdentifier: 
+  tileName: Dunes of Deception
   tileImage: {fileID: 21300000, guid: fa3fee61a6ee51d4c8baf562b31af958, type: 3}
   tileImageFlooded: {fileID: 21300000, guid: c51c3d9bf568ae24abc93c87441b7560, type: 3}
   tileImageSunk: {fileID: 0}

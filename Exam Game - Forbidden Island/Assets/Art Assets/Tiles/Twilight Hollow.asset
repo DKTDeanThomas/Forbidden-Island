@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0da545e6d4643e4dbe41f850e61f950, type: 3}
   m_Name: Twilight Hollow
   m_EditorClassIdentifier: 
+  tileName: Twilight Hollow
   tileImage: {fileID: 21300000, guid: 4e42cf6c3e89d9d4c981e0fc8bfdb8e9, type: 3}
   tileImageFlooded: {fileID: 21300000, guid: 88c77e880597eed4bbeefb60a8bc86a7, type: 3}
   tileImageSunk: {fileID: 0}

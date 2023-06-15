@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0da545e6d4643e4dbe41f850e61f950, type: 3}
   m_Name: Temple of the Moon
   m_EditorClassIdentifier: 
+  tileName: Temple of the Moon
   tileImage: {fileID: 21300000, guid: 4572d8b29d335ba40bade85b3d746b2e, type: 3}
   tileImageFlooded: {fileID: 21300000, guid: 4811d06c0c102464cb06d0ad7b3a3a8d, type: 3}
   tileImageSunk: {fileID: 0}

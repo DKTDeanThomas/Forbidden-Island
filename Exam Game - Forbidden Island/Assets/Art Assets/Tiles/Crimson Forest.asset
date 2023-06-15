@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0da545e6d4643e4dbe41f850e61f950, type: 3}
   m_Name: Crimson Forest
   m_EditorClassIdentifier: 
+  tileName: Crimson Forest
   tileImage: {fileID: 21300000, guid: 8df9ce9daec010f49951ea725e2b3484, type: 3}
   tileImageFlooded: {fileID: 21300000, guid: e3441506ff3d1374abd62f35c9e04a7d, type: 3}
   tileImageSunk: {fileID: 0}

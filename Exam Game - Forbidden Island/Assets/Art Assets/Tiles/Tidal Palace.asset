@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0da545e6d4643e4dbe41f850e61f950, type: 3}
   m_Name: Tidal Palace
   m_EditorClassIdentifier: 
+  tileName: Tidal Palace
   tileImage: {fileID: 21300000, guid: f1a94ab4d2b19dc429ef3d824525099f, type: 3}
   tileImageFlooded: {fileID: 21300000, guid: d10f947d94d264f469b09fdf3665c6c9, type: 3}
   tileImageSunk: {fileID: 0}

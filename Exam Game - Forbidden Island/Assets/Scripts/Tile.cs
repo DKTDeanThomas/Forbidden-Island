@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Tile : ScriptableObject
 {
-
+    public string tileName;
     public Sprite tileImage;
     public Sprite tileImageFlooded;
     public Sprite tileImageSunk;
@@ -14,7 +14,7 @@ public class Tile : ScriptableObject
     public bool isFoolsLanding;
 
     public enum TileState {normal, flooded, sunk}
-    [HideInInspector] public TileState state;
+    public TileState state;
 
     public enum TileType {normal, gate, treasure}
 

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class FloodCardScript : MonoBehaviour
 {
+    public static TileManager tInstance;
 
     [SerializeField]
     public Sprite[] floodCardSprites;
@@ -12,7 +13,9 @@ public class FloodCardScript : MonoBehaviour
     [SerializeField]
     private Image cardImage;
 
-    private int maxDrawLimit = 2;
+    private string cardName;
+
+    public int maxDrawLimit = 30;
     private int drawCount = 0;
 
     public Sprite DrawCard()
@@ -40,9 +43,13 @@ public class FloodCardScript : MonoBehaviour
         Sprite drawnCard = DrawCard();
         cardImage.sprite= drawnCard;
 
+        cardName = drawnCard.name;
+
+
         if (drawnCard != null)
         {
-            Debug.Log("Player Drew:" + drawnCard.name);
+            //Debug.Log("Player Drew:" + drawnCard.name);
+            TileManager.tInstance.TileFlood(cardName);
         }
             
     }
