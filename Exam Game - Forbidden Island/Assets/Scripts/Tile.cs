@@ -13,16 +13,31 @@ public class Tile : ScriptableObject
 
     public bool isFoolsLanding;
 
+    public bool canMoveto;
+
     public enum TileState {normal, flooded, sunk}
     public TileState state;
 
     public enum TileType {normal, gate, treasure}
-
-
     public TileType type;
+
+    public enum PlayerType {none, diver, navigator, pilot, messenger, explorer, engineer}
+    public PlayerType playerType;
 
     public enum TreasureType {none, earthStone, windStatue, fireCrystal, oceanChalice}
     public TreasureType treasure;
+
+    public int ColNum;
+    public int RowNum;
+
+    public Vector2 tilePos;
+
+
+
+
+
+
+
 
 
 }

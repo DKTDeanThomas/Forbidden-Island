@@ -19,4 +19,5 @@ MonoBehaviour:
   isFoolsLanding: 1
   state: 0
   type: 0
+  playerType: 3
   treasure: 0

@@ -5,6 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Tile
+  - Highlight
+  - Player 1
+  - Player 2
+  - P1Card
+  - P2Card
+  - Hand2
+  - Hand1
   layers:
   - Default
   - TransparentFX

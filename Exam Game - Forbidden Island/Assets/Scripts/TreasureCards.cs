@@ -12,48 +12,76 @@ public class TreasureCards : MonoBehaviour
     [SerializeField]
     private Image treasureCardImage;
 
-    public int maxTreasureDrawCount = 30;
-    private int treasureDrawCount = 0;
+    [SerializeField]
+    private List<Sprite> availableCards = new List<Sprite>();
+
+    public int maxTreasureDrawCount = 2;
+    public int treasureDrawCount = 0;
 
     private WaterLevelScript _waterLevelScript;
 
-    public Sprite DrawTreasureCard()
-    {
-        if(treasureDrawCount >= maxTreasureDrawCount)
-        {
-            Debug.Log("Treasure card limit reached");
-            return null;
-        }
-        int Index = Random.Range(0, treasureCardsSprite.Length);
-        treasureDrawCount++;
-        return treasureCardsSprite[Index];
-    }
+    private Button treasureDrawButton;
+
+    private TreasureSlots treasureSlots;
+
 
     private void Start()
     {
-        Button treasureDrawbutton = GetComponentInChildren<Button>();
+
+        availableCards.AddRange(treasureCardsSprite);
+
+        treasureSlots = FindObjectOfType<TreasureSlots>();
+        // Button treasureDrawbutton = GetComponentInChildren<Button>();
+        // treasureDrawButton.onClick.AddListener(DrawTreasureOnClick);
     }
 
-    public void DrawTreasureOnClick()
+    public Sprite DrawTreasureCard()
     {
-        Sprite cardDrawn = DrawTreasureCard();
-        treasureCardImage.sprite = cardDrawn;
-
-        if(cardDrawn != null)
+        if (availableCards.Count == 0)
         {
-            Debug.Log("Player Drew:" + cardDrawn.name);
+            Debug.Log("No more treasure cards available");
+            return null;
         }
 
-        if(cardDrawn.name == "Water Levels Rise")
+        int index = Random.Range(0, availableCards.Count);
+        Sprite cardDrawm = availableCards[index];
+        availableCards.RemoveAt(index);
+        return cardDrawm;
+    }
+
+    public void DrawTreasureOnClick(Player player)
+    {
+       
+        Sprite cardDrawn = DrawTreasureCard();
+
+
+        if (cardDrawn != null)
+        {
+            //Debug.Log("Player " + player.playerType + " Drew: " + cardDrawn.name);
+            player.AddDrawnCard(cardDrawn);
+            treasureSlots.SetCardImage(cardDrawn, player.PlayerIndex, player.GetNextSlotIndex());
+        }
+
+        if (cardDrawn.name == "Water Levels Rise")
         {
             _waterLevelScript = FindObjectOfType<WaterLevelScript>();
-            if(_waterLevelScript != null)
+            if (_waterLevelScript != null)
             {
                 _waterLevelScript.IncreaseWaterLevel(1);
             }
         }
+        
+        treasureDrawCount++;
     }
 
+    public void GiveCardOnClick(Player giver, Sprite card, int playerIndex)
+    {
+        GameManager gameManager = FindObjectOfType<GameManager>();
+        if (gameManager != null)
+        {
+            // gameManager.GiveTreasureCard(giver, card);
+        }
+    }
 
 
 }

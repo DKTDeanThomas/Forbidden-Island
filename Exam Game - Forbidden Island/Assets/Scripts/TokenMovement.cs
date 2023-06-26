@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class TokenMovement : MonoBehaviour
 {
+    public static UI uiInstance;
+    public static TileManager tInstance;
     public Color selectedColor ;
     private Color originalColor;
     private bool isSelected = false;
@@ -13,95 +15,129 @@ public class TokenMovement : MonoBehaviour
     private Vector3 offset;
 
     public int moveCount = 0;
-    public int maxMoveLimit = 6;
-   
+    public const int maxMoveLimit = 3;
+
+    public Vector2 playerLocation;
+
 
     private void Start()
     {
         originalColor = GetComponent<SpriteRenderer>().color;
-        
     }
 
     private void Update()
     {
-        if(isSelected && Input.GetMouseButtonDown(0))
+        
+       /* if (isSelected && Input.GetMouseButtonDown(0))
         {
-            if(!IsMouseOverToken())
+            if (!IsMouseOverToken())
             {
                 DeselectToken();
             }
+                MoveTokenWithMouse();          
+        }*/
+    }
 
-            MoveTokenWithMouse();
+    private void MoveTokenWithMouse()
+    {
+        if (moveCount < maxMoveLimit)
+        {
+           // Vector3 newPosition = WorldPosition() + offset;
+           //transform.position = newPosition;
+            moveCount++;
+            UI.uiInstance.UpdateMoveCount(moveCount);
+        }
+        else
+        {
+            DeselectToken();
+            offset = Vector3.zero;    // prevents movement when limit is reached
+            Debug.Log("Player movement limit reached");
         }
     }
 
     private void OnMouseDown()
     {
-        if(!isSelected)
+        ReceiveLocation();
+       
+        if (moveCount < 3)
         {
-            SelectToken();
+            if (isSelected)
+            {
+                DeselectToken();
+            }
+
+            else if (!isSelected)
+            {
+                SelectToken();
+            }
+
         }
+
+        else
+        {
+            DeselectToken();
+            offset = Vector3.zero;    // prevents movement when limit is reached
+            Debug.Log("Player movement limit reached");
+        }
+        
     }
 
-
-    public void SelectToken()
+    private void SelectToken()
     {
         GetComponent<SpriteRenderer>().color = selectedColor;
+        TileManager.tInstance.ShowAdjacentTiles(playerLocation);
 
         isSelected = true;
-
         offset = transform.position - WorldPosition();
+       
     }
 
-    void DeselectToken()
+    public void DeselectToken()
     {
         GetComponent<SpriteRenderer>().color = originalColor;
+        TileManager.tInstance.DeselectTiles();
         isSelected = false;
 
+        if (moveCount < maxMoveLimit)
+        {
+            moveCount++;
+            UI.uiInstance.UpdateMoveCount(moveCount);
+        }
 
-       
     }
 
     private bool IsMouseOverToken()
     {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint( Input.mousePosition );
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0f;
         Collider2D collider = GetComponent<Collider2D>();
-        return collider.bounds.Contains( mousePosition );
+        return collider.bounds.Contains(mousePosition);
     }
 
-    void MoveTokenWithMouse()
-    {
-       
+   
 
-        if(moveCount < maxMoveLimit)
-        {
-
-            Vector3 newPosition = WorldPosition() + offset;
-            transform.position = newPosition;
-            moveCount++;
-        }
-        else
-        {
-            DeselectToken();
-            offset = Vector3.zero;    //prevents movement when limit is reached
-            Debug.Log("Player movement limit reached");
-
-        }
-
-
-    }
-
-   private  Vector3 WorldPosition()
+    private Vector3 WorldPosition()
     {
         Vector3 mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
         return mousePosition;
     }
 
+    private void ReceiveLocation()
+    {
+        playerLocation = gameObject.GetComponent<Player>().playerPos;
+    }
 
+    public void PositionUpdate(int indexnum)
+    {
+        gameObject.GetComponent<Player>().playerPos = TileManager.tInstance.boardTiles[indexnum].tilePos;
+        TileManager.tInstance.DeselectTiles();
+    }
 
-   
-
-
+    public void ResetMoves()
+    {
+        moveCount = 0;
+        UI.uiInstance.UpdateMoveCount(moveCount);
+    }
 }
+
